@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Voice Emotion Dashboard</title>
+</head>
+<body>
+
+    <h2>🎙️ Voice Emotion & Sentiment Dashboard</h2>
+
+    <form method="POST" enctype="multipart/form-data">
+        <label>Select Audio File:</label>
+        <input type="file" name="audio" required>
+        <br><br>
+        <button type="submit">Analyze Emotion</button>
+    </form>
+
+    <hr>
+
+    {% if chart %}
+        <h3>📊 Emotion Timeline</h3>
+        {{ chart | safe }}
+
+        <h3>📋 Complete Emotion Log (Minute : Second)</h3>
+        {{ table | safe }}
+
+        <h3>🔄 Emotion Change Points</h3>
+        {{ change_table | safe }}
+
+    {% endif %}
+
+</body>
+</html>
