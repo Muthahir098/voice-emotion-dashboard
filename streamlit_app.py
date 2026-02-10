@@ -9,10 +9,10 @@ st.set_page_config(page_title="Voice Emotion Dashboard", layout="wide")
 st.title("🎙️ Voice Emotion & Sentiment Dashboard")
 st.write("Upload an audio file to analyze emotion changes over time.")
 
-audio_file = st.file_uploader("Upload WAV audio file", type=["wav"])
+audio_file = st.file_uploader("Upload audio file(WAV or MP3)", type=["wav","mp3"])
 
 if audio_file:
-    audio, sr = librosa.load(audio_file, sr=None)
+    audio, sr = librosa.load(audio_file, sr=None,mono=True)
 
     segment_duration = 2  # seconds
     times = []
